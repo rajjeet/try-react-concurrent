@@ -1,4 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { App } from './app';
 
-ReactDOM.render(<h1>Helloworld React!</h1>, document.getElementById('root'));
+let rootNode = document.getElementById('root');
+
+let Mode = ({modeName}) => (
+  <div>
+    <h1>{modeName} Mode!</h1>
+    <App />
+  </div>
+);
+
+// ReactDOM.render(<Mode modeName={'Normal'} />, rootNode);
+ReactDOM.createRoot(rootNode).render(<Mode modeName={'Concurrent'} />);
