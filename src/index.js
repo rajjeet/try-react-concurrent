@@ -7,10 +7,10 @@ let rootNode = document.getElementById('root');
 
 let Mode = ({modeName}) => (
   <Suspense fallback={<MoonLoader />}>
-    <h1>{modeName} Mode!</h1>
+    <h3>{modeName} Mode!</h3>
     <App />
   </Suspense>
 );
 
-ReactDOM.render(<Mode modeName={'Normal'} />, rootNode);
-// ReactDOM.createRoot(rootNode).render(<Mode modeName={'Concurrent'} />);
+// ReactDOM.render(<Mode modeName={'Normal'} />, rootNode);
+ReactDOM.createRoot(rootNode).render(<Mode modeName={'Concurrent'} />);
