@@ -11,7 +11,7 @@ function ProfilePage() {
         setUser(user);
         setPosts(posts);
       })
-  });
+  }, []);
   return (
     <>
       <ProfileDetails user={user} />

@@ -1,47 +1,131 @@
 import { wrapPromise } from './wrap-promise';
 
-const data = {
-  user: {
-    name: "Raj"
-  },
-  posts: [
-    { id: 1, text: "Building Great User Experiences with Concurrent Mode and Suspense" },
-    { id: 2, text: "Preparing for the Future with React Prereleases" },
-    { id: 3, text: "Introducing the New React DevTools" },
-    { id: 4, text: "React Conf recap: Hooks, Suspense, and Concurrent Rendering" }
-  ]
-};
+export function fetchUser(userId = 0) {
+  console.log("fetch user " + userId + "...");
+  return new Promise(resolve => {
+    setTimeout(() => {
+      console.log("fetched user " + userId);
+      switch (userId) {
+        case 0:
+          resolve({
+            name: "Ringo Starr [0]"
+          });
+          break;
+        case 1:
+          resolve({
+            name: "George Harrison [1]"
+          });
+          break;
+        case 2:
+          resolve({
+            name: "John Lennon [2]"
+          });
+          break;
+        case 3:
+          resolve({
+            name: "Paul McCartney [3]"
+          });
+          break;
+        default:
+          throw Error("Unknown user.");
+      }
+    }, 3000);
+  });
+}
 
+export function fetchPosts(userId = 0) {
+  console.log(
+    "fetch posts for " + userId + "..."
+  );
+  return new Promise(resolve => {
+    setTimeout(() => {
+      console.log("fetched posts for " + userId);
+      switch (userId) {
+        case 0:
+          resolve([
+            {
+              id: 0,
+              text:
+                "I get by with a little help from my friends [0]"
+            },
+            {
+              id: 1,
+              text:
+                "I'd like to be under the sea in an octupus's garden [0]"
+            },
+            {
+              id: 2,
+              text:
+                "You got that sand all over your feet [0]"
+            }
+          ]);
+          break;
+        case 1:
+          resolve([
+            {
+              id: 0,
+              text:
+                "Turn off your mind, relax, and float downstream [1]"
+            },
+            {
+              id: 1,
+              text: "All things must pass [1]"
+            },
+            {
+              id: 2,
+              text:
+                "I look at the world and I notice it's turning [1]"
+            }
+          ]);
+          break;
+        case 2:
+          resolve([
+            {
+              id: 0,
+              text:
+                "Living is easy with eyes closed [2]"
+            },
+            {
+              id: 1,
+              text:
+                "Nothing's gonna change my world [2]"
+            },
+            {
+              id: 2,
+              text: "I am the walrus [2]"
+            }
+          ]);
+          break;
+        case 3:
+          resolve([
+            {
+              id: 0,
+              text: "Woke up, fell out of bed [3]"
+            },
+            {
+              id: 1,
+              text: "Here, there, and everywhere [3]"
+            },
+            {
+              id: 2,
+              text:
+                "Two of us sending postcards, writing letters [3]"
+            }
+          ]);
+          break;
+        default:
+          throw Error("Unknown user.");
+      }
+    }, 5000);
+  });
+}
 
-export const fetchUser = () => new Promise((resolve => {
-  console.log('fetching user...')
-  setTimeout(() => {
-    resolve(data.user)
-  }, 2000);
-}));
-
-export const fetchPosts = () => new Promise((resolve => {
-  console.log('fetching posts...')
-  setTimeout(() => {
-    resolve(data.posts)
-  }, 4000);
-}));
-
-export function fetchProfileData() {
-  let userPromise = fetchUser();
-  let postsPromise = fetchPosts();
+export function fetchProfileData(userId = 0) {
+  let userPromise = fetchUser(userId);
+  let postsPromise = fetchPosts(userId);
   return {
     user:  wrapPromise(userPromise),
     posts: wrapPromise(postsPromise)
-  };
-}
-
-export function fetchProfileData2() {
-  let userPromise = fetchUser();
-  let postsPromise = fetchPosts();
-  return {
-    user:  userPromise,
-    posts: postsPromise
   };
 }
 

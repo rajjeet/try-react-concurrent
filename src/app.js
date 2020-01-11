@@ -7,6 +7,8 @@ import { FetchOnRender } from './section/3-fetch-on-render';
 import { FetchOnRenderSiblings } from './section/3a-fetch-on-render-siblings';
 import { FetchThenRender } from './section/4-fetch-then-render';
 import { FetchThenRenderAll } from './section/4a-fetch-then-render-all';
+import { FetchEarly } from './section/5-fetch-early';
+import { FetchWithProps } from './section/5a-fetch-with-props';
 
 
 const VerticalNav = styled.div`
@@ -40,6 +42,8 @@ export let App = () => {
           <NavLink to={'/fetch-on-render-sibling'}>Fetch On Render (Siblings)</NavLink>
           <NavLink to={'/fetch-then-render'}>Fetch Then Render</NavLink>
           <NavLink to={'/fetch-then-render-all'}>Fetch Then Render (All)</NavLink>
+          <NavLink to={'/fetch-early'}>Fetch Early</NavLink>
+          <NavLink to={'/fetch-with-props'}>Fetch w/ Props</NavLink>
         </VerticalNav>
 
         <Switch>
@@ -50,6 +54,8 @@ export let App = () => {
             <Route exact path={'/fetch-on-render-sibling'} component={FetchOnRenderSiblings} />
             <Route exact path={'/fetch-then-render'} component={FetchThenRender} />
             <Route exact path={'/fetch-then-render-all'} component={FetchThenRenderAll} />
+            <Route exact path={'/fetch-early'} component={FetchEarly} />
+            <Route exact path={'/fetch-with-props'} component={FetchWithProps} />
           </Main>
         </Switch>
       </Layout>

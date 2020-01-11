@@ -10,7 +10,7 @@ function ProfilePage() {
       .then(user => setUser(user));
     fetchPosts()
       .then(posts => setPosts(posts));
-  });
+  }, []);
   return (
       <ProfileDetails user={user} posts={posts} />
   );

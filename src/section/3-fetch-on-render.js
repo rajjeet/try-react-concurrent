@@ -14,7 +14,7 @@ function ProfileDetails() {
     fetchUser().then(user => {
       setUser(user);
     })
-  });
+  }, []);
   if (!user) return <BarLoader />;
   return (
     <>
@@ -30,7 +30,7 @@ function ProfileTimeline() {
     fetchPosts().then(posts => {
       setPosts(posts);
     })
-  });
+  }, []);
   if (!posts.length) return <BarLoader />;
   return (
     <ul>
