@@ -1,6 +1,6 @@
 import { wrapPromise } from './wrap-promise';
 
-export function fetchUser(userId = 0) {
+export function fetchUser(userId = 0, timeout = 3000) {
   console.log("fetch user " + userId + "...");
   return new Promise(resolve => {
     setTimeout(() => {
@@ -8,32 +8,36 @@ export function fetchUser(userId = 0) {
       switch (userId) {
         case 0:
           resolve({
-            name: "Ringo Starr [0]"
+            name: "Ringo Starr [0]",
+            id: 0
           });
           break;
         case 1:
           resolve({
-            name: "George Harrison [1]"
+            name: "George Harrison [1]",
+            id: 1
           });
           break;
         case 2:
           resolve({
-            name: "John Lennon [2]"
+            name: "John Lennon [2]",
+            id: 2
           });
           break;
         case 3:
           resolve({
-            name: "Paul McCartney [3]"
+            name: "Paul McCartney [3]",
+            id: 3
           });
           break;
         default:
           throw Error("Unknown user.");
       }
-    }, 3000);
+    }, timeout);
   });
 }
 
-export function fetchPosts(userId = 0) {
+export function fetchPosts(userId = 0, timeout = 5000) {
   console.log(
     "fetch posts for " + userId + "..."
   );
@@ -116,13 +120,13 @@ export function fetchPosts(userId = 0) {
         default:
           throw Error("Unknown user.");
       }
-    }, 5000);
+    }, timeout);
   });
 }
 
-export function fetchProfileData(userId = 0) {
-  let userPromise = fetchUser(userId);
-  let postsPromise = fetchPosts(userId);
+export function fetchProfileData(userId = 0, timeout) {
+  let userPromise = fetchUser(userId, timeout);
+  let postsPromise = fetchPosts(userId, timeout);
   return {
     user:  wrapPromise(userPromise),
     posts: wrapPromise(postsPromise)

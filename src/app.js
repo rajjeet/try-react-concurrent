@@ -9,6 +9,9 @@ import { FetchThenRender } from './section/4-fetch-then-render';
 import { FetchThenRenderAll } from './section/4a-fetch-then-render-all';
 import { FetchEarly } from './section/5-fetch-early';
 import { FetchWithProps } from './section/5a-fetch-with-props';
+import { RaceWithUseEffectHooks } from './section/6-race-with-use-effect';
+import { RaceWithComponentDidUpdate } from './section/6a-race-with-component-did-update';
+import { RaceWithSuspense } from './section/6b-race-with-suspense';
 
 
 const VerticalNav = styled.div`
@@ -44,6 +47,9 @@ export let App = () => {
           <NavLink to={'/fetch-then-render-all'}>Fetch Then Render (All)</NavLink>
           <NavLink to={'/fetch-early'}>Fetch Early</NavLink>
           <NavLink to={'/fetch-with-props'}>Fetch w/ Props</NavLink>
+          <NavLink to={'/race-with-use-effect-hooks'}>Race with useEffect</NavLink>
+          <NavLink to={'/race-with-component-did-update'}>Race with Component Did Update</NavLink>
+          <NavLink to={'/race-with-suspense'}>Race with Suspense</NavLink>
         </VerticalNav>
 
         <Switch>
@@ -56,6 +62,10 @@ export let App = () => {
             <Route exact path={'/fetch-then-render-all'} component={FetchThenRenderAll} />
             <Route exact path={'/fetch-early'} component={FetchEarly} />
             <Route exact path={'/fetch-with-props'} component={FetchWithProps} />
+            <Route exact path={'/race-with-use-effect-hooks'} component={RaceWithUseEffectHooks} />
+            <Route exact path={'/race-with-component-did-update'} component={RaceWithComponentDidUpdate} />
+            <Route exact path={'/race-with-suspense'} component={RaceWithSuspense} />
+
           </Main>
         </Switch>
       </Layout>
