@@ -124,7 +124,7 @@ export function fetchPosts(userId = 0, timeout = 5000) {
   });
 }
 
-function fetchTrivia() {
+function fetchTrivia(timeout = 6000) {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve([
@@ -144,14 +144,14 @@ function fetchTrivia() {
             "Nominated for one Daytime Emmy Award, but did not win"
         }
       ]);
-    }, 6000);
+    }, timeout + 50);
   });
 }
 
 export function fetchProfileData(userId = 0, timeout) {
   let userPromise = fetchUser(userId, timeout);
   let postsPromise = fetchPosts(userId, timeout);
-  let triviaPromise = fetchTrivia();
+  let triviaPromise = fetchTrivia(timeout);
   return {
     user:  wrapPromise(userPromise),
     posts: wrapPromise(postsPromise),
