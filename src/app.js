@@ -16,6 +16,7 @@ import { Transitions } from './section/7-transitions';
 import { WrapLazyInSuspense } from './section/8-wrap-lazy-in-suspense';
 import { SuspenseTrain } from './section/9-suspense-train';
 import { DelayPendingIndicator } from './section/10-delay-pending-indicator';
+import { HighLowPriorityState } from './section/11-prioritized-state';
 
 
 const VerticalNav = styled.div`
@@ -58,6 +59,7 @@ export let App = () => {
           <NavLink to={'/wrap-lazy-in-suspense'}>Wrap Lazy in Suspense</NavLink>
           <NavLink to={'/suspense-train'}>Suspense Train</NavLink>
           <NavLink to={'/delay-pending-indicator'}>Delay pending indicator</NavLink>
+          <NavLink to={'/prioritized-state'}>Prioritized state</NavLink>
         </VerticalNav>
 
         <Switch>
@@ -75,7 +77,9 @@ export let App = () => {
             <Route exact path={'/race-with-suspense'} component={RaceWithSuspense} />
             <Route exact path={'/transitions'} component={Transitions} />
             <Route exact path={'/wrap-lazy-in-suspense'} component={WrapLazyInSuspense} />
+            <Route exact path={'/suspense-train'} component={SuspenseTrain} />
             <Route exact path={'/delay-pending-indicator'} component={DelayPendingIndicator} />
+            <Route exact path={'/prioritized-state'} component={HighLowPriorityState} />
           </Main>
         </Switch>
       </Layout>
