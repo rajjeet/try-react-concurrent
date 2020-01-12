@@ -13,6 +13,7 @@ import { RaceWithUseEffectHooks } from './section/6-race-with-use-effect';
 import { RaceWithComponentDidUpdate } from './section/6a-race-with-component-did-update';
 import { RaceWithSuspense } from './section/6b-race-with-suspense';
 import { Transitions } from './section/7-transitions';
+import { WrapLazyInSuspense } from './section/8-wrap-lazy-in-suspense';
 
 
 const VerticalNav = styled.div`
@@ -52,6 +53,7 @@ export let App = () => {
           <NavLink to={'/race-with-component-did-update'}>Race with Component Did Update</NavLink>
           <NavLink to={'/race-with-suspense'}>Race with Suspense</NavLink>
           <NavLink to={'/transitions'}>Transitions</NavLink>
+          <NavLink to={'/wrap-lazy-in-suspense'}>Wrap Lazy in Suspense</NavLink>
         </VerticalNav>
 
         <Switch>
@@ -68,6 +70,7 @@ export let App = () => {
             <Route exact path={'/race-with-component-did-update'} component={RaceWithComponentDidUpdate} />
             <Route exact path={'/race-with-suspense'} component={RaceWithSuspense} />
             <Route exact path={'/transitions'} component={Transitions} />
+            <Route exact path={'/wrap-lazy-in-suspense'} component={WrapLazyInSuspense} />
           </Main>
         </Switch>
       </Layout>
