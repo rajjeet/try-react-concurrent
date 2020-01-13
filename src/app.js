@@ -26,8 +26,8 @@ const VerticalNav = styled.div`
   flex-direction: column;
   background-color: beige;
   padding: 1em;  
-  width: 300px;
-  font-size: 1.5em;
+  width: 400px;
+  font-size: 1.2em;
 `;
 const Layout = styled.div`
   display: flex;
@@ -48,22 +48,26 @@ export let App = () => {
         <VerticalNav>
           <NavLink to={'/'}>Home</NavLink>
           <NavLink to={'/profile-page'}>Profile Page</NavLink>
+          <br/>
           <NavLink to={'/fetch-on-render'}>Fetch On Render (Parent-Child)</NavLink>
           <NavLink to={'/fetch-on-render-sibling'}>Fetch On Render (Siblings)</NavLink>
           <NavLink to={'/fetch-then-render'}>Fetch Then Render</NavLink>
           <NavLink to={'/fetch-then-render-all'}>Fetch Then Render (All)</NavLink>
+          <br />
           <NavLink to={'/fetch-early'}>Fetch Early</NavLink>
           <NavLink to={'/fetch-with-props'}>Fetch w/ Props</NavLink>
-          <NavLink to={'/race-with-use-effect-hooks'}>Race with useEffect</NavLink>
-          <NavLink to={'/race-with-component-did-update'}>Race with Component Did Update</NavLink>
-          <NavLink to={'/race-with-suspense'}>Race with Suspense</NavLink>
+          <br />
+          <NavLink to={'/race-with-use-effect-hooks'}>Race w/ useEffect</NavLink>
+          <NavLink to={'/race-with-component-did-update'}>Race w/ ComponentDidUpdate</NavLink>
+          <NavLink to={'/race-with-suspense'}>Race w/ Suspense</NavLink>
+          <br />
           <NavLink to={'/transitions'}>Transitions</NavLink>
           <NavLink to={'/wrap-lazy-in-suspense'}>Wrap Lazy in Suspense</NavLink>
           <NavLink to={'/suspense-train'}>Suspense Train</NavLink>
-          <NavLink to={'/delay-pending-indicator'}>Delay pending indicator</NavLink>
-          <NavLink to={'/prioritized-state'}>Prioritized state</NavLink>
-          <NavLink to={'/deferred-state'}>Deferred state</NavLink>
-          <NavLink to={'/suspense-list'}>Suspense list</NavLink>
+          <NavLink to={'/delay-pending-indicator'}>Delay Pending Indicator</NavLink>
+          <NavLink to={'/prioritized-state'}>Prioritized State</NavLink>
+          <NavLink to={'/deferred-state'}>Deferred State</NavLink>
+          <NavLink to={'/suspense-list'}>Suspense List</NavLink>
         </VerticalNav>
 
         <Switch>
