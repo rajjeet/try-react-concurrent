@@ -18,6 +18,7 @@ import { SuspenseTrain } from './section/9-suspense-train';
 import { DelayPendingIndicator } from './section/10-delay-pending-indicator';
 import { HighLowPriorityState } from './section/11-prioritized-state';
 import { DeferringState } from './section/12-deferred-state';
+import { SuspenseListPage } from './section/13-suspense-list';
 
 
 const VerticalNav = styled.div`
@@ -62,6 +63,7 @@ export let App = () => {
           <NavLink to={'/delay-pending-indicator'}>Delay pending indicator</NavLink>
           <NavLink to={'/prioritized-state'}>Prioritized state</NavLink>
           <NavLink to={'/deferred-state'}>Deferred state</NavLink>
+          <NavLink to={'/suspense-list'}>Suspense list</NavLink>
         </VerticalNav>
 
         <Switch>
@@ -83,6 +85,7 @@ export let App = () => {
             <Route exact path={'/delay-pending-indicator'} component={DelayPendingIndicator} />
             <Route exact path={'/prioritized-state'} component={HighLowPriorityState} />
             <Route exact path={'/deferred-state'} component={DeferringState} />
+            <Route exact path={'/suspense-list'} component={SuspenseListPage} />
           </Main>
         </Switch>
       </Layout>
