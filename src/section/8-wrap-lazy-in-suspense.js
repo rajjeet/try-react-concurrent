@@ -1,9 +1,9 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 import { fetchProfileData } from '../util/fetch-profile-data';
 import { BarLoader } from 'react-spinners';
 
 function ProfilePage() {
-  let [resource] = React.useState(fetchProfileData());
+  let [resource] = useState(fetchProfileData());
   return (
     <Suspense fallback={<BarLoader />}>
       <ProfileDetails resource={resource} />

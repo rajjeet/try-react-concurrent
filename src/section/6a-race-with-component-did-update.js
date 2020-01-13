@@ -1,8 +1,7 @@
 import 'babel-polyfill';
-import React, {useState, useEffect} from 'react';
+import React, {useState, Component} from 'react';
 import { fetchPosts, fetchUser } from '../util/fetch-profile-data';
 import { BarLoader } from 'react-spinners';
-import * as PropTypes from 'prop-types';
 
 
 function App() {
@@ -21,7 +20,7 @@ function App() {
   )
 }
 
-class ProfilePage extends React.Component {
+class ProfilePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,7 +52,7 @@ class ProfilePage extends React.Component {
   }
 }
 
-class ProfileTimeline extends React.Component {
+class ProfileTimeline extends Component {
   constructor(props) {
     super(props);
     this.state = {

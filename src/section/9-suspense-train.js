@@ -1,10 +1,10 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 import { fetchProfileData } from '../util/fetch-profile-data';
 import { BarLoader } from 'react-spinners';
 
 // modify the trivia api timeout variance
 function ProfilePage() {
-  let [resource] = React.useState(fetchProfileData(0, 1000));
+  let [resource] = useState(fetchProfileData(0, 1000));
   return (
     <Suspense fallback={<BarLoader />}>
       <ProfileDetails resource={resource} />

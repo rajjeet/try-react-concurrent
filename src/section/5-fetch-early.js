@@ -3,6 +3,7 @@ import { fetchProfileData } from '../util/fetch-profile-data';
 import { BarLoader } from 'react-spinners';
 
 let t0 = null;
+
 function App() {
   const [userId, setUserId] = useState(0);
   const [resource, setResource] = useState(fetchProfileData(0));
@@ -34,13 +35,11 @@ function ProfilePage({ resource }) {
 }
 
 function ProfileDetails({ resource }) {
-  // Try to read user info, although it might not have loaded yet
   const user = resource.user.read();
   return <h1>{user.name} ({Math.round(performance.now() - t0) - 3000})</h1>;
 }
 
 function ProfileTimeline({ resource }) {
-  // Try to read posts, although they might not have loaded yet
   const posts = resource.posts.read();
   return (
     <ul>

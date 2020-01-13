@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { fetchPosts, fetchUser } from '../util/fetch-profile-data';
 import { BarLoader } from 'react-spinners';
 
 function ProfilePage() {
-  let [user, setUser] = React.useState(null);
-  let [posts, setPosts] = React.useState([]);
-  React.useEffect(() => {
+  let [user, setUser] = useState(null);
+  let [posts, setPosts] = useState([]);
+  useEffect(() => {
     Promise.all([fetchUser(), fetchPosts()])
       .then(([user, posts]) => {
         setUser(user);
@@ -15,7 +15,7 @@ function ProfilePage() {
   return (
     <>
       <ProfileDetails user={user} />
-      <br/>
+      <br />
       <ProfileTimeline posts={posts} />
     </>
   );
@@ -24,7 +24,7 @@ function ProfilePage() {
 function ProfileDetails({ user }) {
   if (!user) return <BarLoader />;
   return (
-      <h1>{user.name}</h1>
+    <h1>{user.name}</h1>
   )
 }
 

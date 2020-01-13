@@ -41,10 +41,9 @@ const Main = styled.div`
 
 export let App = () => {
   return (
-
     <BrowserRouter>
+      <h1>React Concurrent Mode</h1>
       <Layout>
-
         <VerticalNav>
           <NavLink to={'/'}>Home</NavLink>
           <NavLink to={'/profile-page'}>Profile Page</NavLink>
@@ -69,7 +68,6 @@ export let App = () => {
           <NavLink to={'/deferred-state'}>Deferred State</NavLink>
           <NavLink to={'/suspense-list'}>Suspense List</NavLink>
         </VerticalNav>
-
         <Switch>
           <Main>
             <Route exact path={'/'} component={Home} />

@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useTransition, useCallback, useEffect } from 'react';
+import React, { Suspense, useState, useTransition, useCallback } from 'react';
 import { fetchProfileData } from '../util/fetch-profile-data';
 import { BarLoader, HashLoader, MoonLoader } from 'react-spinners';
 import { css } from '@emotion/core';

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { fetchPosts, fetchUser } from '../util/fetch-profile-data';
 import { BarLoader } from 'react-spinners';
 
@@ -19,7 +19,7 @@ function App() {
   )
 }
 
-function ProfilePage({userId}) {
+function ProfilePage({ userId }) {
   let [user, setUser] = useState(null);
   useEffect(() => {
     fetchUser(userId, Math.random() * 2000).then(user => {
@@ -35,7 +35,7 @@ function ProfilePage({userId}) {
   )
 }
 
-function ProfileTimeline({userId}) {
+function ProfileTimeline({ userId }) {
   let [posts, setPosts] = useState([]);
   useEffect(() => {
     fetchPosts(userId, Math.random() * 2000).then(posts => {

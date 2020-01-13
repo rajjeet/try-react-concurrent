@@ -8,10 +8,10 @@ const Experiment = ({ title, useDeferredText }) => {
   }, []);
   const deferredText = useDeferredValue(text, { timeoutMs: 5000 });
   return (
-    <div style={{padding: '1em', margin: '1em'}}>
+    <div style={{ padding: '1em', margin: '1em' }}>
       <h2>{title}</h2>
-      <input onChange={handleChange} value={text} style={{fontSize: '2em'}} />
-      <div >
+      <input onChange={handleChange} value={text} style={{ fontSize: '2em' }} />
+      <div>
         <SlowList text={useDeferredText ? deferredText : text} />
       </div>
     </div>

@@ -25,7 +25,7 @@ function App() {
 function ProfilePage({ userId }) {
   const [resource, setResource] = useState(fetchProfileData(0));
   useEffect(() => {
-      setResource(fetchProfileData(userId));
+    setResource(fetchProfileData(userId));
   }, [userId]);
   return (
     <Suspense fallback={<BarLoader />}>
@@ -38,13 +38,11 @@ function ProfilePage({ userId }) {
 }
 
 function ProfileDetails({ resource }) {
-  // Try to read user info, although it might not have loaded yet
   const user = resource.user.read();
   return <h1>{user.name} ({Math.round(performance.now() - t0) - 3000})</h1>;
 }
 
 function ProfileTimeline({ resource }) {
-  // Try to read posts, although they might not have loaded yet
   const posts = resource.posts.read();
   return (
     <ul>

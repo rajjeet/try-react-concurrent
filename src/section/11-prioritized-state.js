@@ -33,7 +33,7 @@ const fetchUpperCase = (text) => {
   };
 };
 
-const Experiment = ({title, isPrioritized}) => {
+const Experiment = ({ title, isPrioritized }) => {
   let [value, setValue] = useState("");
   let [resource, setResource] = useState(null);
   let [startTransition, isPending] = useTransition({ timeoutMs: 2000 });
@@ -67,7 +67,8 @@ const Experiment = ({title, isPrioritized}) => {
 
 function UpperCaseGenerator(props) {
   return <>
-    <StyledInput disabled={!props.isPrioritized && props.pending} onChange={props.onChange} value={props.value} />
+    <StyledInput disabled={!props.isPrioritized && props.pending} onChange={props.onChange}
+                 value={props.value} />
     <Suspense fallback={<UpperCaseBoxStyle value={'No result'} />}>
       <UpperCaseBox resource={props.resource} />
     </Suspense>
