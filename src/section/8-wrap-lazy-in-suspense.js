@@ -5,15 +5,19 @@ import { BarLoader } from 'react-spinners';
 function ProfilePage() {
   let [resource] = useState(fetchProfileData());
   return (
-    <Suspense fallback={<BarLoader />}>
-      <ProfileDetails resource={resource} />
+    <>
+      <p>Instead of making the transition shorter, we can “disconnect” the slow component from the
+        transition by wrapping it in Suspense</p>
       <Suspense fallback={<BarLoader />}>
-        <ProfileTimeline resource={resource} />
+        <ProfileDetails resource={resource} />
+        <Suspense fallback={<BarLoader />}>
+          <ProfileTimeline resource={resource} />
+        </Suspense>
+        <Suspense fallback={<BarLoader />}>
+          <ProfileTrivia resource={resource} />
+        </Suspense>
       </Suspense>
-      <Suspense fallback={<BarLoader />}>
-        <ProfileTrivia resource={resource} />
-      </Suspense>
-    </Suspense>
+    </>
   );
 }
 

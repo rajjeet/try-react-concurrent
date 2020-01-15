@@ -5,6 +5,7 @@ import { BarLoader } from 'react-spinners';
 function ProfilePage() {
   return (
     <>
+      <p>Instead of a parent-child hierarchy, a sibling relationship helps improve load times.</p>
       <ProfileDetails />
       <br />
       <ProfileTimeline />

@@ -8,6 +8,7 @@ function App() {
   const [resource, setResource] = useState(fetchProfileData(0, 1000));
   return (
     <>
+      <p>We’re not waiting for the response to set the state. It’s the other way around: we set the state (and start rendering) immediately after kicking off a request.</p>
       <button onClick={() => {
         let nextUserId = (userId + 1) % 4;
         setUserId(nextUserId);

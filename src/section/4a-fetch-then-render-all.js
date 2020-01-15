@@ -14,6 +14,8 @@ function ProfilePage() {
   }, []);
   return (
     <>
+      <p>Start fetching all the data for the next screen as early as possible. When the data is
+        ready, render the new screen. We can’t do anything until the data arrives.</p>
       <ProfileDetails user={user} />
       <br />
       <ProfileTimeline posts={posts} />

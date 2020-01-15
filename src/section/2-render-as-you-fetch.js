@@ -2,15 +2,20 @@ import React, { Suspense, useState } from 'react';
 import { fetchProfileData } from '../util/fetch-profile-data';
 import { BarLoader } from 'react-spinners';
 
-export function ProfilePage() {
+function ProfilePage() {
   let [resource] = useState(fetchProfileData());
   return (
-    <Suspense fallback={<BarLoader />}>
-      <ProfileDetails resource={resource} />
+    <>
+      <p>Start fetching all the required data for the next screen as early as possible, and start
+        rendering the new screen immediately — before we get a network response. As data streams in,
+        React retries rendering components that still need data until they’re all ready.</p>
       <Suspense fallback={<BarLoader />}>
-        <ProfileTimeline resource={resource} />
+        <ProfileDetails resource={resource} />
+        <Suspense fallback={<BarLoader />}>
+          <ProfileTimeline resource={resource} />
+        </Suspense>
       </Suspense>
-    </Suspense>
+    </>
   );
 }
 
@@ -31,3 +36,5 @@ function ProfileTimeline({ resource }) {
     </ul>
   );
 }
+
+export const RenderAsYouFetch = ProfilePage;

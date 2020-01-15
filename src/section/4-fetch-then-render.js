@@ -12,7 +12,10 @@ function ProfilePage() {
       .then(posts => setPosts(posts));
   }, []);
   return (
+    <>
+      <p>Fetch each piece of data separately and render.</p>
     <ProfileDetails user={user} posts={posts} />
+    </>
   );
 }
 

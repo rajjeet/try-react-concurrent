@@ -7,6 +7,9 @@ function App() {
   const [userId, setUserId] = useState(0);
   return (
     <>
+      <p>Requests from the previous profiles may sometimes “come back” after we’ve already switched
+        the profile to another ID — and in that case they can overwrite the new state with a stale
+        response for a different ID.</p>
       <button onClick={() => {
         let nextUserId = (userId + 1) % 4;
         setUserId(nextUserId);

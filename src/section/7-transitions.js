@@ -26,6 +26,7 @@ function App() {
   const [startTransition, isPending] = useTransition({ timeoutMs: transitionTimeout || 2000 });
   return (
     <>
+      <p>It would be nice if we could “skip” it and wait for some content to load before transitioning to the new screen.</p>
       <button
         onClick={() => {
           let nextUserId = (userId + 1) % 4;

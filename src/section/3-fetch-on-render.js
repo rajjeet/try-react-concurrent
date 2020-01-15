@@ -4,7 +4,11 @@ import { BarLoader } from 'react-spinners';
 
 function ProfilePage() {
   return (
-    <ProfileDetails />
+    <>
+      <p>Start rendering components. Each of these components may trigger data fetching in their
+        effects and lifecycle methods. This approach often leads to “waterfalls”.</p>
+      <ProfileDetails />
+    </>
   );
 }
 

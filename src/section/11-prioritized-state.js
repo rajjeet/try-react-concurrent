@@ -84,6 +84,7 @@ const UpperCaseBox = ({ resource }) => {
 export const HighLowPriorityState = () => {
   return (
     <div>
+      <p>Split the state in two parts: a “high priority” part that updates immediately, and a “low priority” part that may wait for a transition.</p>
       <h1>High/Low Priority State</h1>
       <div>
         <Experiment title={'Non-prioritized State'} isPrioritized={false} />

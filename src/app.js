@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import { Home } from './section/1-home';
-import { ProfilePage } from './section/2-profile-page';
+import { ProfilePage, RenderAsYouFetch } from './section/2-render-as-you-fetch';
 import { FetchOnRender } from './section/3-fetch-on-render';
 import { FetchOnRenderSiblings } from './section/3a-fetch-on-render-siblings';
 import { FetchThenRender } from './section/4-fetch-then-render';
@@ -26,17 +26,25 @@ const VerticalNav = styled.div`
   flex-direction: column;
   background-color: beige;
   padding: 1em;  
-  width: 400px;
+  width: 280px;
   font-size: 1.2em;
 `;
 const Layout = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;  
+    
 `;
 const Main = styled.div`
   padding: 1em;
-  width: 100%;
+  width: 40%;
+`;
+const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  color: #333;    
+  &.active {
+    color: red;
+    font-weight: bolder;
+  }
 `;
 
 export let App = () => {
@@ -45,37 +53,35 @@ export let App = () => {
       <h1>React Concurrent Mode</h1>
       <Layout>
         <VerticalNav>
-          <NavLink to={'/'}>Home</NavLink>
-          <NavLink to={'/profile-page'}>Profile Page</NavLink>
-          <br/>
-          <NavLink to={'/fetch-on-render'}>Fetch On Render (Parent-Child)</NavLink>
-          <NavLink to={'/fetch-on-render-sibling'}>Fetch On Render (Siblings)</NavLink>
-          <NavLink to={'/fetch-then-render'}>Fetch Then Render</NavLink>
-          <NavLink to={'/fetch-then-render-all'}>Fetch Then Render (All)</NavLink>
-          <br />
-          <NavLink to={'/fetch-early'}>Fetch Early</NavLink>
-          <NavLink to={'/fetch-with-props'}>Fetch w/ Props</NavLink>
-          <br />
-          <NavLink to={'/race-with-use-effect-hooks'}>Race w/ useEffect</NavLink>
-          <NavLink to={'/race-with-component-did-update'}>Race w/ ComponentDidUpdate</NavLink>
-          <NavLink to={'/race-with-suspense'}>Race w/ Suspense</NavLink>
-          <br />
-          <NavLink to={'/transitions'}>Transitions</NavLink>
-          <NavLink to={'/wrap-lazy-in-suspense'}>Wrap Lazy in Suspense</NavLink>
-          <NavLink to={'/suspense-train'}>Suspense Train</NavLink>
-          <NavLink to={'/delay-pending-indicator'}>Delay Pending Indicator</NavLink>
-          <NavLink to={'/prioritized-state'}>Prioritized State</NavLink>
-          <NavLink to={'/deferred-state'}>Deferred State</NavLink>
-          <NavLink to={'/suspense-list'}>Suspense List</NavLink>
+          <StyledNavLink exact to={'/'}>Home</StyledNavLink>
+          <h4>Suspense for Data Fetching</h4>
+          <StyledNavLink to={'/fetch-on-render'}>Fetch On Render (Parent-Child)</StyledNavLink>
+          <StyledNavLink to={'/fetch-on-render-sibling'}>Fetch On Render (Siblings)</StyledNavLink>
+          <StyledNavLink to={'/fetch-then-render'}>Fetch Then Render</StyledNavLink>
+          <StyledNavLink to={'/fetch-then-render-all'}>Fetch Then Render (All)</StyledNavLink>
+          <StyledNavLink to={'/render-as-you-fetch'}>Render As You Fetch</StyledNavLink>
+          <StyledNavLink to={'/fetch-early'}>Fetch Early</StyledNavLink>
+          <StyledNavLink to={'/fetch-with-props'}>Fetch w/ Props</StyledNavLink>
+          <StyledNavLink to={'/race-with-use-effect-hooks'}>Race w/ useEffect</StyledNavLink>
+          <StyledNavLink to={'/race-with-component-did-update'}>Race w/ ComponentDidUpdate</StyledNavLink>
+          <StyledNavLink to={'/race-with-suspense'}>Race w/ Suspense</StyledNavLink>
+          <h4>Concurrent UI Patterns</h4>
+          <StyledNavLink to={'/transitions'}>Transitions</StyledNavLink>
+          <StyledNavLink to={'/wrap-lazy-in-suspense'}>Wrap Lazy in Suspense</StyledNavLink>
+          <StyledNavLink to={'/suspense-train'}>Suspense Train</StyledNavLink>
+          <StyledNavLink to={'/delay-pending-indicator'}>Delay Pending Indicator</StyledNavLink>
+          <StyledNavLink to={'/prioritized-state'}>Prioritized State</StyledNavLink>
+          <StyledNavLink to={'/deferred-state'}>Deferred State</StyledNavLink>
+          <StyledNavLink to={'/suspense-list'}>Suspense List</StyledNavLink>
         </VerticalNav>
         <Switch>
           <Main>
             <Route exact path={'/'} component={Home} />
-            <Route exact path={'/profile-page'} component={ProfilePage} />
             <Route exact path={'/fetch-on-render'} component={FetchOnRender} />
             <Route exact path={'/fetch-on-render-sibling'} component={FetchOnRenderSiblings} />
             <Route exact path={'/fetch-then-render'} component={FetchThenRender} />
             <Route exact path={'/fetch-then-render-all'} component={FetchThenRenderAll} />
+            <Route exact path={'/render-as-you-fetch'} component={RenderAsYouFetch} />
             <Route exact path={'/fetch-early'} component={FetchEarly} />
             <Route exact path={'/fetch-with-props'} component={FetchWithProps} />
             <Route exact path={'/race-with-use-effect-hooks'} component={RaceWithUseEffectHooks} />

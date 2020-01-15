@@ -9,6 +9,7 @@ function App() {
   const [userId, setUserId] = useState(0);
   return (
     <>
+      <p>Start data fetching in component after receiving ID from parent (slightly slower).</p>
       <button onClick={() => {
         let nextUserId = (userId + 1) % 4;
         setUserId(nextUserId);

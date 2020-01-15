@@ -9,6 +9,7 @@ function App() {
   const [resource, setResource] = useState(fetchProfileData(0));
   return (
     <>
+      <p>Start data fetching in click handler.</p>
       <button onClick={() => {
         let nextUserId = (userId + 1) % 4;
         setUserId(nextUserId);
