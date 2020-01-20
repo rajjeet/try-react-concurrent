@@ -1,8 +1,27 @@
-# Content
+### Try React Concurrent Mode
 
-- **React** | [Blog](https://www.codementor.io/@rajjeet/step-by-step-create-a-react-project-from-scratch-11s9skvnxv) | [GitHub](https://github.com/rajjeet/react-quick-start/tree/master) 
-    - React-Redux | [Blog](https://www.codementor.io/@rajjeet/step-by-step-how-to-add-redux-to-a-react-app-11tcgslmvi) | [GitHub](https://github.com/rajjeet/react-quick-start/tree/react-redux)
-        - Redux-Thunk | [Blog](https://www.codementor.io/@rajjeet/add-thunk-to-your-react-redux-project-for-async-actions-using-these-4-lines-of-code-11w6kntp46) | [GitHub](https://github.com/rajjeet/react-quick-start/tree/redux-thunk)
-        - Redux-Saga | [Blog](https://www.codementor.io/@rajjeet/add-thunk-to-your-react-redux-project-for-async-actions-using-these-4-lines-of-code-11w6kntp46) | [GitHub](https://github.com/rajjeet/react-quick-start/tree/redux-saga)
+```sh
+npm install
+npm start
+```
+
+### How Will React Concurrent Mode Change the Way Think and Write React
+- stop splitting and nesting components just to orchestrate specific loading sequences
+```jsx harmony
 
 
+
+
+```
+- component trees will be shorter in height but wider, making comprehension of code simpler
+- manage less loading state and conditionals, lean components
+- key skill 
+    - what level in the component tree to start fetching and how much to fetch - depends on understanding the business case well
+    - not enough mean too many loading sequences
+    - too much meaning excessive and wasteful api calls that are never used
+- changing the way loading is orchestration will take very less time, as a few lines of code
+    - instead of creating new loading states and integrating them with other loading conditionals, we can simply move Components in and out of Suspense boundaries, and within components, we can move the setting of state in and out of useTransition constructs. 
+    - encourage UI teams to think about modelling transitions rather than just finished screens  
+
+
+ 
