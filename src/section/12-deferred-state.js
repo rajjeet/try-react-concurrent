@@ -10,7 +10,7 @@ const Experiment = ({ title, useDeferredText }) => {
   return (
     <div style={{ padding: '1em', margin: '1em' }}>
       <h2>{title}</h2>
-      <input onChange={handleChange} value={text} style={{ fontSize: '2em' }} />
+      <input onChange={handleChange} value={text} style={{ fontSize: '2em', width: '200px' }} />
       <div>
         <SlowList text={useDeferredText ? deferredText : text} />
       </div>
@@ -46,7 +46,7 @@ export const DeferringState = () => {
   return (
     <>
       <h1>Deferring State</h1>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div style={{ display: 'flex', flexDirection: "row" }}>
         <Experiment title={'Without Deferred State'} useDeferredText={false} />
         <Experiment title={'With Deferred State'} useDeferredText={true} />
       </div>
