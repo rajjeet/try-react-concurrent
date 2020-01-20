@@ -68,7 +68,7 @@ export let App = () => {
           <h4>Concurrent UI Patterns</h4>
           <StyledNavLink to={'/transitions'}>Transitions</StyledNavLink>
           <StyledNavLink to={'/wrap-lazy-in-suspense'}>Wrap Lazy in Suspense</StyledNavLink>
-          <StyledNavLink to={'/suspense-train'}>Suspense Train</StyledNavLink>
+          <StyledNavLink to={'/suspense-train'}>Suspense Reveal Train</StyledNavLink>
           <StyledNavLink to={'/delay-pending-indicator'}>Delay Pending Indicator</StyledNavLink>
           <StyledNavLink to={'/prioritized-state'}>Prioritized State</StyledNavLink>
           <StyledNavLink to={'/deferred-state'}>Deferred State</StyledNavLink>
